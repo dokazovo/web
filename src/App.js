@@ -12,10 +12,12 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchResult from "./pages/SearchResult";
 import Medication from "./pages/Medication";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />

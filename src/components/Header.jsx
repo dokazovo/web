@@ -5,7 +5,7 @@ function Header() {
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="nav-link" to="/">Dokazovo</Link>
+          <Link className="nav-link" to="/">Dokazovo 👍</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">
