@@ -1,8 +1,6 @@
 function Medications() {
   return (
-      <>
-        Medications
-      </>
+      <h1 className="text-center">Сторінка у розробці 👷</h1>
   );
 }
 

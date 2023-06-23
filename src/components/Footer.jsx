@@ -8,7 +8,7 @@ function Footer() {
             <Link className="nav-link px-2 text-body-secondary" to="/about">Про проект</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link px-2 text-body-secondary" to="/feedback">Відгук</Link>
+            <Link className="nav-link px-2 text-body-secondary" to="/feedback">Зворотній звʼязок</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link px-2 text-body-secondary" to="/agreement">Угода</Link>

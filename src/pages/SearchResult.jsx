@@ -8,7 +8,6 @@ function SearchResult() {
   const [medications, setMedications] = useState([])
 
   useEffect(() => {
-    console.log('Fetching data for ' + query)
     const data = ApiService.getMedications()
     setMedications(data)
   }, [query])

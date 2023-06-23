@@ -23,9 +23,7 @@ export default class ApiService {
         { id: 4, title: 'Біль в горлі' },
         { id: 5, title: 'Біль у суглобі' },
       ],
-      alternatives: [
-
-      ]
+      alternatives: []
     },
     {
       id: 2,
@@ -45,9 +43,7 @@ export default class ApiService {
         { id: 4, title: 'Біль в горлі' },
         { id: 5, title: 'Біль у суглобі' },
       ],
-      alternatives: [
-
-      ]
+      alternatives: []
     },
     {
       id: 3,
@@ -72,9 +68,7 @@ export default class ApiService {
         { id: 4, title: 'Біль в горлі' },
         { id: 5, title: 'Біль у суглобі' },
       ],
-      alternatives: [
-
-      ]
+      alternatives: []
     }
   ]
 

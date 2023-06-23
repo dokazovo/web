@@ -20,7 +20,7 @@ function Header() {
                 <Link className="nav-link" to="/medications">Ліки</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/ingredients">Інгридієнти</Link>
+                <Link className="nav-link" to="/ingredients">Активні речовини</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/diseases">Захворювання</Link>

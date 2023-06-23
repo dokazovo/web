@@ -13,6 +13,8 @@ import Footer from "./components/Footer";
 import SearchResult from "./pages/SearchResult";
 import Medication from "./pages/Medication";
 import ScrollToTop from "./ScrollToTop";
+import Ingredient from "./pages/Ingredient";
+import Disease from "./pages/Disease";
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
         <Route path="/medications" element={<Medications />} />
         <Route path="/medications/:id" element={<Medication />} />
         <Route path="/ingredients" element={<Ingredients />} />
+        <Route path="/ingredients/:id" element={<Ingredient />} />
         <Route path="/diseases" element={<Diseases />} />
+        <Route path="/diseases/:id" element={<Disease />} />
         <Route path="/atc" element={<Atc />} />
         <Route path="/about" element={<About />} />
         <Route path="/feedback" element={<Feedback />} />

@@ -1,8 +1,6 @@
 function Ingredients() {
   return (
-      <>
-        Ingredients
-      </>
+      <h1 className="text-center">Сторінка у розробці 👷</h1>
   );
 }
 

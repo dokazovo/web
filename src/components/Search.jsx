@@ -16,10 +16,18 @@ function Search() {
   }
 
   return (
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Назва препарату" aria-label="Search"
-               value={query} onChange={inputChangeHandler}/>
-        <button className="btn btn-outline-success" type="submit" onClick={submitHandler}>Знайти</button>
+      <form role="search">
+        <div className="container mt-2">
+          <div className="row">
+            <div className="col-sm-9 mb-2">
+              <input className="form-control" type="search" placeholder="Назва препарату" aria-label="Search"
+                     value={query} onChange={inputChangeHandler}/>
+            </div>
+            <div className="col-sm-3 d-grid gap-2 mb-2">
+              <button className="btn btn-success" type="submit" onClick={submitHandler}>Знайти</button>
+            </div>
+          </div>
+        </div>
       </form>
   );
 }
