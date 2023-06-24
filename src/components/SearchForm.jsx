@@ -1,9 +1,7 @@
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
 
-function Search() {
+function SearchForm(props) {
   const [query, setQuery] = useState('')
-  const navigate = useNavigate()
 
   function inputChangeHandler(e) {
     setQuery(e.target.value)
@@ -11,7 +9,7 @@ function Search() {
 
   function submitHandler(e) {
     e.preventDefault()
-    navigate(`search-result/${query}`)
+    props.onSubmit(query)
     setQuery('')
   }
 
@@ -20,7 +18,7 @@ function Search() {
         <div className="container mt-2">
           <div className="row">
             <div className="col-sm-9 mb-2">
-              <input className="form-control" type="search" placeholder="Назва препарату" aria-label="Search"
+              <input className="form-control" type="search" placeholder="Назва препарату" aria-label="SearchForm"
                      value={query} onChange={inputChangeHandler}/>
             </div>
             <div className="col-sm-3 d-grid gap-2 mb-2">
@@ -32,4 +30,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchForm;

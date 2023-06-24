@@ -1,6 +1,13 @@
-import Search from "../components/Search";
+import SearchForm from "../components/SearchForm";
+import {useNavigate} from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate()
+
+  function submitHandler(query) {
+    navigate(`search/${query}`)
+  }
+
   return (
       <div className="container">
         <div className="row">
@@ -11,7 +18,7 @@ function Home() {
         </div>
         <div className="row">
           <div className="col">
-            <Search/>
+            <SearchForm onSubmit={submitHandler}/>
           </div>
         </div>
       </div>

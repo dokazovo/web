@@ -1,7 +1,13 @@
-import {Link} from "react-router-dom";
-import Search from "./Search";
+import {Link, useNavigate} from "react-router-dom";
+import SearchForm from "./SearchForm";
 
 function Header() {
+  const navigate = useNavigate()
+
+  function submitHandler(query) {
+    navigate(`search/${query}`)
+  }
+
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
@@ -26,10 +32,10 @@ function Header() {
                 <Link className="nav-link" to="/diseases">Захворювання</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/atc">АТХ класифікація</Link>
+                <Link className="nav-link" to="/atc">АТХ</Link>
               </li>
             </ul>
-            <Search/>
+            <SearchForm onSubmit={submitHandler}/>
           </div>
         </div>
       </nav>

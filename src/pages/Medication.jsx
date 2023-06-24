@@ -9,12 +9,13 @@ function Medication() {
 
   useEffect(() => {
     const nid = parseInt(id)
-    const data = ApiService.getMedication(nid)
-    setMedication(data)
+    ApiService
+        .getMedication(nid)
+        .then(data => setMedication(data))
   }, [id])
 
   function isOverTheCounter(isOverTheCounter) {
-    return medication.isOverTheCounter ? 'За рецептом' : 'Без рецепта'
+    return isOverTheCounter ? 'За рецептом' : 'Без рецепта'
   }
 
   function scoreStyle(score) {
@@ -62,7 +63,7 @@ function Medication() {
                 <p>{isOverTheCounter(medication.isOverTheCounter)}</p>
                 <p>Від {medication.price} грн</p>
                 <p>Активна речовина
-                  {medication.activeIngredients?.map(ai =>
+                  {medication.substance?.activeIngredients?.map(ai =>
                       <Link className="nav-link link-primary" to={`/ingredients/${ai.id}`} key={ai.id}>
                         {ai.name}
                       </Link>
@@ -70,7 +71,7 @@ function Medication() {
                 </p>
                 <p>Фармакологічна група
                   <Link className="nav-link link-primary" to={`/atc/${medication.pharmacologicalGroup}`}>
-                    {medication.pharmacologicalGroup}
+                    {medication.substance?.pharmacologicalGroup}
                   </Link>
                 </p>
               </div>
@@ -88,7 +89,7 @@ function Medication() {
             <div className="card mt-2">
               <div className="card-body">
                 <h5 className="card-title">Показання до застосування</h5>
-                {medication.indications?.map(indication =>
+                {medication.substance?.indications?.map(indication =>
                     <Link className="nav-link link-primary" to={`/diseases/${indication.id}`} key={indication.id}>
                       {indication.title}
                     </Link>

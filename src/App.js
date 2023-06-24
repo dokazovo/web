@@ -1,4 +1,3 @@
-import './App.css';
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Agreement from "./pages/Agreement";
@@ -10,7 +9,7 @@ import About from "./pages/About";
 import Feedback from "./pages/Feedback";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import SearchResult from "./pages/SearchResult";
+import Search from "./pages/Search";
 import Medication from "./pages/Medication";
 import ScrollToTop from "./ScrollToTop";
 import Ingredient from "./pages/Ingredient";
@@ -33,7 +32,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/agreement" element={<Agreement />} />
-        <Route path="/search-result/:query" element={<SearchResult />} />
+        <Route path="/search/:query" element={<Search />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer/>

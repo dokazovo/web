@@ -15,7 +15,7 @@ function MedicationPreview({medication}) {
   }
 
   function isOverTheCounter(isOverTheCounter) {
-    return medication.isOverTheCounter ? 'За рецептом' : 'Без рецепта'
+    return isOverTheCounter ? 'За рецептом' : 'Без рецепта'
   }
 
   return (
@@ -24,7 +24,7 @@ function MedicationPreview({medication}) {
           <div className="card-body">
             <h5 className="card-title">{medication.tradeName}</h5>
             <h6 className="card-subtitle mb-2 text-body-secondary">
-              {medication.activeIngredients?.map(ai => ai.name).join(', ')}
+              {medication.substance?.activeIngredients?.map(ai => ai.name).join(', ')}
             </h6>
             <div className="row">
               <div className="col-6">

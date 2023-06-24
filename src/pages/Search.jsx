@@ -3,13 +3,15 @@ import {useEffect, useState} from "react";
 import MedicationPreview from "../components/MedicationPreview";
 import ApiService from "../ApiService";
 
-function SearchResult() {
+function Search() {
   const {query} = useParams()
   const [medications, setMedications] = useState([])
 
   useEffect(() => {
-    const data = ApiService.getMedications()
-    setMedications(data)
+    ApiService
+        .searchMedications(query)
+        .then(data => setMedications(data))
+
   }, [query])
 
   return (
@@ -28,4 +30,4 @@ function SearchResult() {
   );
 }
 
-export default SearchResult;
+export default Search;
