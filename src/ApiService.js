@@ -2,7 +2,7 @@ export default class ApiService {
   static baseUrl = 'http://localhost:4000'
 
   static async searchMedications(query) {
-    const url = `${this.baseUrl}/api/medications/search?query=${query}`
+    const url = `${this.baseUrl}/api/search?query=${query}`
     const response = await fetch(url)
     return  response.json()
   }

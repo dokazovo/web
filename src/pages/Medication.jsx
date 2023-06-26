@@ -2,6 +2,7 @@ import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import MedicationPreview from "../components/MedicationPreview";
 import ApiService from "../ApiService";
+import {MedicationConstraints, MedicationScore} from "../Model";
 
 function Medication() {
   const {id} = useParams()
@@ -14,18 +15,26 @@ function Medication() {
         .then(data => setMedication(data))
   }, [id])
 
-  function isOverTheCounter(isOverTheCounter) {
-    return isOverTheCounter ? 'За рецептом' : 'Без рецепта'
+  function constraints(constraint) {
+    if (constraint === MedicationConstraints.Undefined) {
+      return ''
+    } else if (constraint === MedicationConstraints.OverTheCounter) {
+      return 'без рецепта'
+    } else if (constraint === MedicationConstraints.Prescription) {
+      return 'за рецептом'
+    } else if (constraint === MedicationConstraints.DependsOnForm) {
+      return 'залежить від форми'
+    }
   }
 
   function scoreStyle(score) {
-    if (score === 0) {
+    if (score === MedicationScore.Undefined) {
       return ''
-    } else if (score === 1) {
+    } else if (score === MedicationScore.Low) {
       return 'text-bg-danger'
-    } else if (score === 2) {
+    } else if (score === MedicationScore.Medium) {
       return 'text-bg-warning'
-    } else if (score === 3) {
+    } else if (score === MedicationScore.High) {
       return 'text-bg-success'
     }
   }
@@ -43,11 +52,11 @@ function Medication() {
   }
 
   function reviewStyle(review) {
-    if (review.result === -1) {
+    if (review.effect === -1) {
       return 'list-group-item-danger'
-    } else if (review.result === 0) {
+    } else if (review.effect === 0) {
       return ''
-    } else if (review.result === 1) {
+    } else if (review.effect === 1) {
       return 'list-group-item-success'
     }
   }
@@ -60,7 +69,7 @@ function Medication() {
               <div className={`card-header ${scoreStyle(medication.score)}`}>{scoreTitle(medication.score)}</div>
               <div className="card-body">
                 <h5 className="card-title">{medication.tradeName}</h5>
-                <p>{isOverTheCounter(medication.isOverTheCounter)}</p>
+                <p>Відпуск {constraints(medication.constraints)}</p>
                 <p>Від {medication.price} грн</p>
                 <p>Активна речовина
                   {medication.substance?.activeIngredients?.map(ai =>
@@ -71,7 +80,7 @@ function Medication() {
                 </p>
                 <p>Фармакологічна група
                   <Link className="nav-link link-primary" to={`/atc/${medication.pharmacologicalGroup}`}>
-                    {medication.substance?.pharmacologicalGroup}
+                    {medication.substance?.chemicalGroup?.pharmacologicalGroup?.name}
                   </Link>
                 </p>
               </div>
@@ -90,8 +99,8 @@ function Medication() {
               <div className="card-body">
                 <h5 className="card-title">Показання до застосування</h5>
                 {medication.substance?.indications?.map(indication =>
-                    <Link className="nav-link link-primary" to={`/diseases/${indication.id}`} key={indication.id}>
-                      {indication.title}
+                    <Link className="nav-link link-primary" to={`/diseases/${indication.code}`} key={indication.code}>
+                      {indication.name}
                     </Link>
                 )}
               </div>

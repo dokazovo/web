@@ -1,21 +1,30 @@
 import {Link} from "react-router-dom";
+import {MedicationConstraints, MedicationScore} from "../Model";
 
 function MedicationPreview({medication}) {
 
   function score(score) {
-    if (score === 0) {
+    if (score === MedicationScore.Undefined) {
       return ''
-    } else if (score === 1) {
+    } else if (score === MedicationScore.Low) {
       return 'border-danger'
-    } else if (score === 2) {
+    } else if (score === MedicationScore.Medium) {
       return 'border-warning'
-    } else if (score === 3) {
+    } else if (score === MedicationScore.High) {
       return 'border-success'
     }
   }
 
-  function isOverTheCounter(isOverTheCounter) {
-    return isOverTheCounter ? 'За рецептом' : 'Без рецепта'
+  function constraints(constraint) {
+    if (constraint === MedicationConstraints.Undefined) {
+      return ''
+    } else if (constraint === MedicationConstraints.OverTheCounter) {
+      return 'без рецепта'
+    } else if (constraint === MedicationConstraints.Prescription) {
+      return 'за рецептом'
+    } else if (constraint === MedicationConstraints.DependsOnForm) {
+      return 'залежить від форми'
+    }
   }
 
   return (
@@ -28,7 +37,7 @@ function MedicationPreview({medication}) {
             </h6>
             <div className="row">
               <div className="col-6">
-                <p className="card-text">{isOverTheCounter(medication.isOverTheCounter)}</p>
+                <p className="card-text">Відпуск {constraints(medication.constraints)}</p>
               </div>
               <div className="col-6">Від {medication.price} грн</div>
             </div>
