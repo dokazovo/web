@@ -33,7 +33,7 @@ function MedicationPreview({medication}) {
           <div className="card-body">
             <h5 className="card-title">{medication.tradeName}</h5>
             <h6 className="card-subtitle mb-2 text-body-secondary">
-              {medication.substance?.activeIngredients?.map(ai => ai.name).join(', ')}
+              {medication.substance?.activeIngredients?.map(ai => ai.genericName).join(', ')}
             </h6>
             <div className="row">
               <div className="col-6">

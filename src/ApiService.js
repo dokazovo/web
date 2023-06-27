@@ -4,12 +4,12 @@ export default class ApiService {
   static async searchMedications(query) {
     const url = `${this.baseUrl}/api/search?query=${query}`
     const response = await fetch(url)
-    return  response.json()
+    return await response.json()
   }
 
   static async getMedication(id) {
     const url = `${this.baseUrl}/api/medications/${id}`
     const response = await fetch(url)
-    return  response.json()
+    return await response.json()
   }
 }

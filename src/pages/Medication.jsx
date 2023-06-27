@@ -9,9 +9,8 @@ function Medication() {
   const [medication, setMedication] = useState({})
 
   useEffect(() => {
-    const nid = parseInt(id)
     ApiService
-        .getMedication(nid)
+        .getMedication(id)
         .then(data => setMedication(data))
   }, [id])
 
@@ -74,7 +73,7 @@ function Medication() {
                 <p>Активна речовина
                   {medication.substance?.activeIngredients?.map(ai =>
                       <Link className="nav-link link-primary" to={`/ingredients/${ai.id}`} key={ai.id}>
-                        {ai.name}
+                        {ai.genericName}
                       </Link>
                   )}
                 </p>
