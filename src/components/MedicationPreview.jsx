@@ -39,7 +39,7 @@ function MedicationPreview({medication}) {
               <div className="col-6">
                 <p className="card-text">Відпуск {constraints(medication.constraints)}</p>
               </div>
-              <div className="col-6">Від {medication.price} грн</div>
+              {/*<div className="col-6">Від {medication.price} грн</div>*/}
             </div>
           </div>
         </div>

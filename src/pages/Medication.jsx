@@ -63,16 +63,16 @@ function Medication() {
   return (
       <div className="container">
         <div className="row">
-          <div className="col-md-8 mt-2">
+          <div className="col-lg-8 mt-2">
             <div className="card">
               <div className={`card-header ${scoreStyle(medication.score)}`}>{scoreTitle(medication.score)}</div>
               <div className="card-body">
                 <h5 className="card-title">{medication.tradeName}</h5>
                 <p>Відпуск {constraints(medication.constraints)}</p>
-                <p>Від&nbsp;
+                <p>Знайти на&nbsp;
                   <a href={`https://tabletki.ua/uk/search/${medication.tradeName}`} target="_blank" rel="noreferrer"
                      style={{ textDecoration: 'none' }}>
-                    {medication.price} грн
+                    tabletki.ua
                   </a>
                 </p>
                 <p>МНН: <strong>{medication.inn}</strong></p>
@@ -111,7 +111,7 @@ function Medication() {
               </div>
             </div>
           </div>
-          <div className="col-md-4 mt-2">
+          <div className="col-lg-4 mt-2">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">Аналогічні препарати</h5>

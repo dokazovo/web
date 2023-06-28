@@ -12,4 +12,10 @@ export default class ApiService {
     const response = await fetch(url)
     return await response.json()
   }
+
+  static async getMedications() {
+    const url = `${this.baseUrl}/api/medications`
+    const response = await fetch(url)
+    return await response.json()
+  }
 }
