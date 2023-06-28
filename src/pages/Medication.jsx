@@ -70,7 +70,8 @@ function Medication() {
                 <h5 className="card-title">{medication.tradeName}</h5>
                 <p>Відпуск {constraints(medication.constraints)}</p>
                 <p>Від {medication.price} грн</p>
-                <p>Активна речовина
+                <p>МНН: <strong>{medication.inn}</strong></p>
+                <p>Розпізнані інгридієнти
                   {medication.substance?.activeIngredients?.map(ai =>
                       <Link className="nav-link link-primary" to={`/ingredients/${ai.id}`} key={ai.id}>
                         {ai.genericName}
