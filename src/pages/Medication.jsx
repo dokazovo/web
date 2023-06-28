@@ -69,7 +69,12 @@ function Medication() {
               <div className="card-body">
                 <h5 className="card-title">{medication.tradeName}</h5>
                 <p>Відпуск {constraints(medication.constraints)}</p>
-                <p>Від {medication.price} грн</p>
+                <p>Від&nbsp;
+                  <a href={`https://tabletki.ua/uk/search/${medication.tradeName}`} target="_blank" rel="noreferrer"
+                     style={{ textDecoration: 'none' }}>
+                    {medication.price} грн
+                  </a>
+                </p>
                 <p>МНН: <strong>{medication.inn}</strong></p>
                 <p>Розпізнані інгридієнти
                   {medication.substance?.activeIngredients?.map(ai =>
