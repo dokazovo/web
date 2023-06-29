@@ -1,5 +1,5 @@
 export default class ApiService {
-  static baseUrl = process.env.REACT_APP_API_HOST
+  static baseUrl = process.env.REACT_APP_API_HOST ?? ''
 
   static async searchMedications(query) {
     const url = `${this.baseUrl}/api/search?query=${query}`
