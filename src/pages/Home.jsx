@@ -1,24 +1,23 @@
 import SearchForm from "../components/SearchForm";
-import {useNavigate} from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate()
-
-  function submitHandler(query) {
-    navigate(`search/${query}`)
-  }
-
   return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1 className="text-center mt-4">Пошук ліків</h1>
-            <h6 className="text-center">Оцінка рівня дослідженості ліків на основі джерел доказової медицини.</h6>
+            <div className="px-4 py-5 my-5 text-center">
+              <h1 className="display-5 fw-bold text-body-emphasis">Пошук ліків</h1>
+              <div className="col-lg-6 mx-auto">
+                <h6 className="mb-4">Оцінка рівня дослідженості ліків на основі джерел доказової медицини.</h6>
+              </div>
+              <div className="justify-content-sm-center">
+                <SearchForm />
+              </div>
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <SearchForm onSubmit={submitHandler}/>
           </div>
         </div>
       </div>
