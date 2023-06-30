@@ -10,6 +10,8 @@ function Search() {
   const [medications, setMedications] = useState([])
 
   useEffect(() => {
+    setMedications([])
+    setIsLoaded(false)
     ApiService
         .searchMedications(query)
         .then(data => {
