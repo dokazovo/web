@@ -6,16 +6,16 @@ import SearchForm from "../components/SearchForm";
 
 function Search() {
   const {query} = useParams()
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [medications, setMedications] = useState([])
 
   useEffect(() => {
     setMedications([])
-    setIsLoaded(false)
+    setIsLoading(true)
     ApiService
         .searchMedications(query)
         .then(data => {
-          setIsLoaded(true)
+          setIsLoading(false)
           setMedications(data)
         })
   }, [query])
@@ -30,7 +30,7 @@ function Search() {
         </div>
         <div className="row">
           <div className="col">
-            {!isLoaded &&
+            {isLoading &&
               <div className="d-flex justify-content-center mt-5">
                 <div className="spinner-border" role="status">
                   <span className="visually-hidden">Loading...</span>
