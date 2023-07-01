@@ -84,7 +84,8 @@ function Medication() {
                   )}
                 </p>
                 <p>Фармакологічна група
-                  <Link className="nav-link link-primary" to={`/atc/${medication.pharmacologicalGroup?.code}`}>
+                  <Link className="nav-link link-primary"
+                        to={`/atc/${medication.substance?.chemicalGroup?.pharmacologicalGroup?.code}`}>
                     {medication.substance?.chemicalGroup?.pharmacologicalGroup?.title}
                   </Link>
                 </p>
