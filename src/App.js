@@ -14,6 +14,7 @@ import Medication from "./pages/Medication";
 import ScrollToTop from "./ScrollToTop";
 import Ingredient from "./pages/Ingredient";
 import Disease from "./pages/Disease";
+import MedicationsIndex from "./pages/MedicationsIndex";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/medications" element={<Medications />} />
+        <Route path="/medications" element={<Medications />}>
+          <Route path="index/:id" element={<MedicationsIndex />} />
+        </Route>
         <Route path="/medications/:id" element={<Medication />} />
         <Route path="/ingredients" element={<Ingredients />} />
         <Route path="/ingredients/:id" element={<Ingredient />} />

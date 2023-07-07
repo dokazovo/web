@@ -1,26 +1,30 @@
 import {useEffect, useState} from "react";
 import ApiService from "../ApiService";
-import {Link} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 function Medications() {
-  const [medications, setMedications] = useState([])
+  const [index, setIndex] = useState([])
 
   useEffect(() => {
     ApiService
-        .getMedications()
-        .then(data => setMedications(data))
+        .getMedicationsIndex()
+        .then(data => setIndex(data))
 
   }, [])
 
   return (
       <div className="container">
-        {medications.map(medication =>
-            <p>
-              <Link to={`/medications/${medication.id}`} key={medication.id} style={{ textDecoration: 'none' }}>
-                {medication.tradeName}
-              </Link>
-            </p>
-        )}
+        <h1 className="text-center">Препарати по алфавіту</h1>
+        <div className="d-flex flex-wrap mb-2">
+          {
+            index.map(i =>
+                <Link className="p-2" to={`/medications/index/${i.id}`} key={i.id} style={{ textDecoration: 'none' }}>
+                  {i.id}
+                </Link>
+            )
+          }
+        </div>
+        <Outlet />
       </div>
   );
 }
